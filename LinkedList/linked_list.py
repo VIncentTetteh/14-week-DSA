@@ -20,20 +20,53 @@ class LinkedList:
         while itr.next:
             itr = itr.next
         itr.next = Node(data,None)
+
+    def insert_values(self, data_list):
+        self.head = None
+        for data in data_list:
+            self.insert_at_end(data)
+    
+    def get_lenght(self):
+        count = 0
+        itr = self.head
+        while itr:
+            count += 1
+            itr = itr.next
+        return count
+
+    def remove_at(self,index):
+        if index < 0 or index > self.get_lenght():
+            raise Exception("index out of bounds")
+
+        if index == 0:
+            self.head = self.head.next
         
+        count = 0
+        itr = self.head
+        while itr:
+            if count == index - 1:
+                itr.next = itr.next.next
+                break
+            itr = itr.next
+            count += 1
 
     def print(self):
         if self.head is None:
             print("Linked list is empty")
         itr = self.head
-        llstr = ""
         while itr:
-            llstr += str(itr.data) + " --> "
+            print(itr.data,end=" -> ")
             itr = itr.next
-            print(llstr)
+
+    
+                
 
 ll = LinkedList()
-ll.insert_at_start(5)
-ll.insert_at_start(4)
-ll.insert_at_end(10)
+# ll.insert_at_start(5)
+# ll.insert_at_start(4)
+# ll.insert_at_end(10)
+arr = [1,2,3]
+ll.insert_values(arr)
+print(ll.get_lenght())
+ll.remove_at(0)
 ll.print()
