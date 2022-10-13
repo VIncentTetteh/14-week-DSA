@@ -15,12 +15,6 @@ d = Node("D")
 #         print(current.value)
 #         current = current.next
 
-#print linkedlist recursively
-def print_linked_list(head):
-    if head is None:
-        return
-    print(head.value)
-    print_linked_list(head.next)
 
 a.next = b
 b.next = c
