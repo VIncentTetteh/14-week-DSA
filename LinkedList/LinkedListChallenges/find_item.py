@@ -6,7 +6,7 @@ class Node:
 a = Node(1)
 b = Node(2)
 c = Node(3)
-d = Node(4)
+d = Node(4) 
 
 # printing linkedlist iteratively
 # def print_linked_list(head):
